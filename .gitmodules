@@ -145,3 +145,6 @@
 [submodule "Mods/Your-Only-Move-Is-GAMBLE"]
 	path = Mods/Your-Only-Move-Is-GAMBLE
 	url = https://github.com/ddf9795/balatro-yomi-gamble
+[submodule "Mods/Steamodded"]
+	path = Mods/Steamodded
+	url = https://github.com/Steamodded/smods
