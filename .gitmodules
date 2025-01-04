@@ -121,9 +121,6 @@
 [submodule "Mods/TatteredDecks"]
 	path = Mods/TatteredDecks
 	url = https://github.com/Cheesy-Brik/TatteredDecks
-[submodule "Mods/TheCircus"]
-	path = Mods/TheCircus
-	url = https://gitlab.com/infinite_jesters/circus
 [submodule "Mods/TOGAPackBalatro"]
 	path = Mods/TOGAPackBalatro
 	url = https://github.com/TheOneGoofAli/TOGAPackBalatro
