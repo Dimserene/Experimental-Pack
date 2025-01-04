@@ -145,3 +145,9 @@
 [submodule "Mods/Steamodded"]
 	path = Mods/Steamodded
 	url = https://github.com/Steamodded/smods
+[submodule "Mods/UnStable"]
+	path = Mods/UnStable
+	url = https://github.com/kirbio/UnStable
+[submodule "Mods/UnStableEX"]
+	path = Mods/UnStableEX
+	url = https://github.com/kirbio/UnStableEX
