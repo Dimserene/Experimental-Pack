@@ -1,0 +1,147 @@
+[submodule "Mods/Balatro-Draft"]
+	path = Mods/Balatro-Draft
+	url = https://github.com/spire-winder/Balatro-Draft
+[submodule "Mods/Balatro-Plus"]
+	path = Mods/Balatro-Plus
+	url = https://github.com/SomeCoder99/balatro-plus
+[submodule "Mods/Balatro-Repentance"]
+	path = Mods/Balatro-Repentance
+	url = https://github.com/lshtech/balatro-repentance
+[submodule "Mods/Bird-Jokers"]
+	path = Mods/Bird-Jokers
+	url = https://github.com/JustinBanzon/Bird-Jokers
+[submodule "Mods/BlindEditions"]
+	path = Mods/BlindEditions
+	url = https://github.com/Mathguy23/BlindEditions
+[submodule "Mods/Blueprint"]
+	path = Mods/Blueprint
+	url = https://github.com/stupxd/Blueprint
+[submodule "Mods/CardSleeves"]
+	path = Mods/CardSleeves
+	url = https://github.com/larswijn/CardSleeves
+[submodule "Mods/CollectorsCards"]
+	path = Mods/CollectorsCards
+	url = https://github.com/Mathguy23/CollectorsCards
+[submodule "Mods/CommunityPack"]
+	path = Mods/CommunityPack
+	url = https://github.com/lshtech/Balatro-CommunityPack
+[submodule "Mods/Cosmos"]
+	path = Mods/Cosmos
+	url = https://github.com/neatoqueen/Cosmos
+[submodule "Mods/CrashAvoider"]
+	path = Mods/CrashAvoider
+	url = https://github.com/WilsontheWolf/CrashAvoider
+[submodule "Mods/Cryptid"]
+	path = Mods/Cryptid
+	url = https://github.com/MathIsFun0/Cryptid
+[submodule "Mods/DebugPlus"]
+	path = Mods/DebugPlus
+	url = https://github.com/WilsontheWolf/DebugPlus
+[submodule "Mods/DiscoveryManager"]
+	path = Mods/DiscoveryManager
+	url = https://github.com/lshtech/DiscoveryManager
+[submodule "Mods/Donuts-Mod"]
+	path = Mods/Donuts-Mod
+	url = https://github.com/BDonutGLXY/Balatro-Donuts-Mod
+[submodule "Mods/LunasDreadJokers"]
+	path = Mods/LunasDreadJokers
+	url = https://github.com/LunaAstraCassiopeia/DreadJokers
+[submodule "Mods/ExtendedBlueprint"]
+	path = Mods/ExtendedBlueprint
+	url = https://github.com/Toneblock/balatro-ExtendedBlueprint
+[submodule "Mods/ExtraCredit"]
+	path = Mods/ExtraCredit
+	url = https://github.com/GuilloryCraft/ExtraCredit
+[submodule "Mods/Familiar"]
+	path = Mods/Familiar
+	url = https://github.com/RattlingSnow353/Familiar
+[submodule "Mods/Flower-Pot"]
+	path = Mods/Flower-Pot
+	url = https://github.com/GauntletGames-2086/Flower-Pot
+[submodule "Mods/FlushHotkeys"]
+	path = Mods/FlushHotkeys
+	url = https://github.com/Agoraaa/FlushHotkeys
+[submodule "Mods/Fusion-Jokers"]
+	path = Mods/Fusion-Jokers
+	url = https://github.com/lshtech/Fusion-Jokers
+[submodule "Mods/Galdur"]
+	path = Mods/Galdur
+	url = https://github.com/Eremel/Galdur/
+[submodule "Mods/Gemstones"]
+	path = Mods/Gemstones
+	url = https://github.com/0fficialHalo/Gemstones
+[submodule "Mods/Grim"]
+	path = Mods/Grim
+	url = https://github.com/Mathguy23/Grim
+[submodule "Mods/Handy"]
+	path = Mods/Handy
+	url = https://github.com/SleepyG11/HandyBalatro
+[submodule "Mods/Item-Remover"]
+	path = Mods/Item-Remover
+	url = https://github.com/art-muncher/Item-Remover
+[submodule "Mods/JoJokers"]
+	path = Mods/JoJokers
+	url = https://github.com/WarlordShado/JoJokers
+[submodule "Mods/JokerDisplay"]
+	path = Mods/JokerDisplay
+	url = https://github.com/nh6574/JokerDisplay
+[submodule "Mods/MixedPotion"]
+	path = Mods/MixedPotion
+	url = https://github.com/snowylight/MixedPotion
+[submodule "Mods/MOARJokers"]
+	path = Mods/MOARJokers
+	url = https://github.com/MrSmoothieHuman1/MOARJokers
+[submodule "Mods/ModPackFixes"]
+	path = Mods/ModPackFixes
+	url = https://github.com/lshtech/ModPackFixes
+[submodule "Mods/MoreJokerPacks"]
+	path = Mods/MoreJokerPacks
+	url = https://github.com/Samario1/MoreJokerPacks
+[submodule "Mods/Multipack"]
+	path = Mods/Multipack
+	url = https://github.com/snowylight/Multipack
+[submodule "Mods/No-Laughing-Matter"]
+	path = Mods/No-Laughing-Matter
+	url = https://github.com/Minirebel/no-laughing-matter
+[submodule "Mods/Ortalab-DEMO"]
+	path = Mods/Ortalab-DEMO
+	url = https://github.com/Eremel/Ortalab-Demo
+[submodule "Mods/Paperback"]
+	path = Mods/Paperback
+	url = https://github.com/GitNether/paperback
+[submodule "Mods/Pokermon"]
+	path = Mods/Pokermon
+	url = https://github.com/InertSteak/Pokermon
+[submodule "Mods/Seven-Deadly-Decks"]
+	path = Mods/Seven-Deadly-Decks
+	url = https://github.com/AstroLightz/Balatro-7DeadlyDecks
+[submodule "Mods/Talisman"]
+	path = Mods/Talisman
+	url = https://github.com/MathIsFun0/Talisman
+[submodule "Mods/TatteredDecks"]
+	path = Mods/TatteredDecks
+	url = https://github.com/Cheesy-Brik/TatteredDecks
+[submodule "Mods/TheCircus"]
+	path = Mods/TheCircus
+	url = https://gitlab.com/infinite_jesters/circus
+[submodule "Mods/TOGAPackBalatro"]
+	path = Mods/TOGAPackBalatro
+	url = https://github.com/TheOneGoofAli/TOGAPackBalatro
+[submodule "Mods/TooManyJokers"]
+	path = Mods/TooManyJokers
+	url = https://github.com/cg-223/toomanyjokers
+[submodule "Mods/Trance"]
+	path = Mods/Trance
+	url = https://github.com/MathIsFun0/Trance
+[submodule "Mods/Tsunami"]
+	path = Mods/Tsunami
+	url = https://github.com/Maratby/Tsunami
+[submodule "Mods/Warpzone"]
+	path = Mods/Warpzone
+	url = https://github.com/frangnosquest/Warpzone
+[submodule "Mods/YART"]
+	path = Mods/YART
+	url = https://github.com/DigitalDetective47/yart
+[submodule "Mods/Your-Only-Move-Is-GAMBLE"]
+	path = Mods/Your-Only-Move-Is-GAMBLE
+	url = https://github.com/ddf9795/balatro-yomi-gamble
