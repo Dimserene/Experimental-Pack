@@ -40,12 +40,6 @@
 [submodule "Mods/DiscoveryManager"]
 	path = Mods/DiscoveryManager
 	url = https://github.com/lshtech/DiscoveryManager
-[submodule "Mods/Donuts-Mod"]
-	path = Mods/Donuts-Mod
-	url = https://github.com/BDonutGLXY/Balatro-Donuts-Mod
-[submodule "Mods/LunasDreadJokers"]
-	path = Mods/LunasDreadJokers
-	url = https://github.com/LunaAstraCassiopeia/DreadJokers
 [submodule "Mods/ExtendedBlueprint"]
 	path = Mods/ExtendedBlueprint
 	url = https://github.com/Toneblock/balatro-ExtendedBlueprint
@@ -151,3 +145,12 @@
 [submodule "Mods/UnStableEX"]
 	path = Mods/UnStableEX
 	url = https://github.com/kirbio/UnStableEX
+[submodule "Mods/Ro-Balatro-Reborn"]
+	path = Mods/Ro-Balatro-Reborn
+	url = https://github.com/AlexZGreat/Ro-Balatro-Reborn
+[submodule "Mods/Donuts-Mod"]
+	path = Mods/Donuts-Mod
+	url = https://github.com/Dimserene/Donuts-Mod
+[submodule "Mods/DreadJokers"]
+	path = Mods/DreadJokers
+	url = https://github.com/Dimserene/DreadJokers
