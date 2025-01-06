@@ -148,9 +148,3 @@
 [submodule "Mods/Ro-Balatro-Reborn"]
 	path = Mods/Ro-Balatro-Reborn
 	url = https://github.com/AlexZGreat/Ro-Balatro-Reborn
-[submodule "Mods/Donuts-Mod"]
-	path = Mods/Donuts-Mod
-	url = https://github.com/Dimserene/Donuts-Mod
-[submodule "Mods/DreadJokers"]
-	path = Mods/DreadJokers
-	url = https://github.com/Dimserene/DreadJokers
