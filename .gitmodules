@@ -1,6 +1,3 @@
-[submodule "Mods/Balatro-Draft"]
-	path = Mods/Balatro-Draft
-	url = https://github.com/spire-winder/Balatro-Draft
 [submodule "Mods/Balatro-Repentance"]
 	path = Mods/Balatro-Repentance
 	url = https://github.com/lshtech/balatro-repentance
@@ -133,9 +130,6 @@
 [submodule "Mods/Your-Only-Move-Is-GAMBLE"]
 	path = Mods/Your-Only-Move-Is-GAMBLE
 	url = https://github.com/ddf9795/balatro-yomi-gamble
-[submodule "Mods/Steamodded"]
-	path = Mods/Steamodded
-	url = https://github.com/Steamodded/smods
 [submodule "Mods/UnStable"]
 	path = Mods/UnStable
 	url = https://github.com/kirbio/UnStable
