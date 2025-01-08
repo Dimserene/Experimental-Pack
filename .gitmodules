@@ -121,12 +121,6 @@
 [submodule "Mods/Your-Only-Move-Is-GAMBLE"]
 	path = Mods/Your-Only-Move-Is-GAMBLE
 	url = https://github.com/ddf9795/balatro-yomi-gamble
-[submodule "Mods/UnStable"]
-	path = Mods/UnStable
-	url = https://github.com/kirbio/UnStable
-[submodule "Mods/UnStableEX"]
-	path = Mods/UnStableEX
-	url = https://github.com/kirbio/UnStableEX
 [submodule "Mods/Ro-Balatro-Reborn"]
 	path = Mods/Ro-Balatro-Reborn
 	url = https://github.com/AlexZGreat/Ro-Balatro-Reborn
