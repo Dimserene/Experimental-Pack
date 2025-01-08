@@ -55,9 +55,6 @@
 [submodule "Mods/Gemstones"]
 	path = Mods/Gemstones
 	url = https://github.com/0fficialHalo/Gemstones
-[submodule "Mods/Grim"]
-	path = Mods/Grim
-	url = https://github.com/Mathguy23/Grim
 [submodule "Mods/Handy"]
 	path = Mods/Handy
 	url = https://github.com/SleepyG11/HandyBalatro
