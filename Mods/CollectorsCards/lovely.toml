@@ -1,0 +1,766 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 0
+
+[[patches]]
+[patches.pattern]
+target = 'functions/common_events.lua'
+pattern = '''elseif specific_vars and (card_type == 'Default' or card_type == 'Enhanced') then'''
+position = 'before'
+payload = '''elseif specific_vars and type(specific_vars.collect) == "table" then
+    full_UI_table.name = {}
+    localize{type = 'other', key = specific_vars.collect.key, set = 'Other', nodes = full_UI_table.name, vars = {}}
+    full_UI_table.name = full_UI_table.name[1]'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = 'functions/common_events.lua'
+pattern = '''localize{type = 'other', key = _c.key, nodes = desc_nodes, vars = specific_vars or _c.vars}'''
+position = 'after'
+payload = '''elseif specific_vars and not specific_vars.debuffed and type(specific_vars.collect) == "table" then
+    local config_thing = specific_vars.collect.config
+    if specific_vars.collect.name == "Flint Card" then
+        loc_vars = {localize("Hearts", 'suits_plural'), localize("Diamonds", 'suits_plural'), config_thing.mult}
+    elseif specific_vars.collect.name == "Eye Card" then
+        loc_vars = {localize("Spades", 'suits_plural'), localize("Clubs", 'suits_plural'), config_thing.chips}
+    elseif specific_vars.collect.name == "Scholar's Mate" then
+        loc_vars = {localize("Queen", 'ranks'), config_thing.chips, config_thing.mult}
+    elseif specific_vars.collect.name == "Scandinavian Defense" then
+        loc_vars = {localize("Queen", 'ranks'), config_thing.chips, config_thing.mult, localize("Spades", 'suits_plural'), localize("Clubs", 'suits_plural')}
+    elseif specific_vars.collect.name == "Double Up" then
+        loc_vars = {config_thing.retriggers}
+    elseif specific_vars.collect.name == "Playable Joker" then
+        loc_vars = {G.GAME.probabilities.normal, config_thing.odds}
+        info_queue[#info_queue + 1] = G.P_CENTERS['e_foil']
+        info_queue[#info_queue + 1] = G.P_CENTERS['e_holo']
+        info_queue[#info_queue + 1] = G.P_CENTERS['e_polychrome']
+    elseif specific_vars.collect.name == "Sunflower" then
+        loc_vars = {config_thing.chips, config_thing.gain}
+    elseif specific_vars.collect.name == "Rules Card" then
+        loc_vars = {config_thing.discards}
+    elseif specific_vars.collect.name == "Wild Draw 4" then
+        loc_vars = {config_thing.chips, config_thing.cards}
+    elseif specific_vars.collect.name == "Jack in a Box" then
+        loc_vars = {config_thing.chips, config_thing.scores, config_thing.scored}
+    elseif specific_vars.collect.name == "2mbstone" then
+        loc_vars = {config_thing.chips, G.GAME.probabilities.normal, config_thing.odds}
+        info_queue[#info_queue + 1] = G.P_CENTERS['c_death']
+    elseif specific_vars.collect.name == "Mane 6" then
+        loc_vars = {config_thing.chips, config_thing.x_mult}
+    elseif specific_vars.collect.name == "Blank Card" then
+        local ranks = {'', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace'}
+        loc_vars = {config_thing.rank and localize(ranks[config_thing.rank], 'ranks') or "None"}
+    elseif specific_vars.collect.name == ":3" then
+        info_queue[#info_queue+1] = {key = 'perishable', set = 'Other', vars = {G.GAME.perishable_rounds or 1, G.GAME.perishable_rounds or 1}}
+        loc_vars = {config_thing.chips, config_thing.scores, math.max(0, config_thing.scores - config_thing.scored)}
+    elseif specific_vars.collect.name == "Golden Ratio" then
+        loc_vars = {localize("Diamonds", 'suits_plural'), localize("2", 'ranks'), localize("3", 'ranks'), localize("5", 'ranks'), localize("8", 'ranks'), localize("Ace", 'ranks'), tostring(config_thing.x_mult), config_thing.dollars}
+    elseif specific_vars.collect.name == "Pocket Ace" then
+        loc_vars = {localize("Spades", 'suits_plural'), localize("Ace", 'ranks'), config_thing.h_chips}
+    elseif specific_vars.collect.name == "Haunted Card" then
+        info_queue[#info_queue+1] = {key = 'phantom', set = 'Other'}
+        loc_vars = {config_thing.cards}
+    elseif specific_vars.collect.name == "Executor" then
+        loc_vars = {config_thing.chips, config_thing.destroys, config_thing.destroyed}
+    elseif specific_vars.collect.name == "Monarch" then
+        loc_vars = {config_thing.chips, localize("Hearts", 'suits_plural'), localize("Spades", 'suits_plural'), localize("Clubs", 'suits_plural')}
+    elseif specific_vars.collect.name == "Meteor" then
+        info_queue[#info_queue + 1] = G.P_CENTERS['m_stone']
+        info_queue[#info_queue+1] = {key = 'fleeting', set = 'Other'}
+        loc_vars = {config_thing.chips, config_thing.cards}
+    end
+    localize{type = 'descriptions', key = specific_vars.collect.key, set = "CustomCard", nodes = desc_nodes, vars = loc_vars}
+    if specific_vars.bonus_chips then
+        localize{type = 'other', key = 'card_extra_chips', nodes = desc_nodes, vars = {specific_vars.bonus_chips}}
+    end
+    if specific_vars and specific_vars.bonus_mult then
+        localize{type = 'other', key = 'card_extra_mult', nodes = desc_nodes, vars = {specific_vars.bonus_mult}}
+    end'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = 'functions/state_events.lua'
+pattern = '''scoring_hand[i].lucky_trigger = nil'''
+position = 'before'
+payload = '''for k=1, #scoring_hand do
+    local eval = scoring_hand[k]:calculate_exotic({cardarea = G.play, full_hand = G.play.cards, scoring_hand = scoring_hand, scoring_name = text, poker_hands = poker_hands, other_card = scoring_hand[i], individual = true}, {})
+    if eval then 
+        for l = 1, #eval do
+            table.insert(effects, eval[l])
+        end
+    end
+end
+for k=1, #G.hand.cards do
+    local eval = G.hand.cards[k]:calculate_exotic({cardarea = G.play, full_hand = G.play.cards, scoring_hand = scoring_hand, scoring_name = text, poker_hands = poker_hands, other_card = scoring_hand[i], individual = true}, {})
+    if eval then 
+        for l = 1, #eval do
+            table.insert(effects, eval[l])
+        end
+    end
+end
+local exotic_eval = scoring_hand[i]:calculate_exotic({cardarea = G.play, full_hand = G.play.cards, scoring_hand = scoring_hand, scoring_name = text, poker_hands = poker_hands, playing_card_main = true})
+if exotic_eval then
+    for l = 1, #exotic_eval do
+        table.insert(effects, exotic_eval[l])
+    end
+end
+'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = 'game.lua'
+pattern = '''self.P_LOCKED = {}'''
+position = 'after'
+payload = '''self.P_TRADING = {
+    flint_card = {order = 1, key = 'flint_card', unlocked = true, discovered = true, atlas = 'pc_trading', cost = 1, name = "Flint Card", pos = {x=1,y=0}, set = "CustomCard", config = {mult = 8}, base = "H_A"},
+    scholar_mate = {order = 2, key = 'scholar_mate', unlocked = true, discovered = true, atlas = 'pc_trading', cost = 1, name = "Scholar's Mate", pos = {x=3,y=0}, set = "CustomCard", config = {chips = 10, mult = 12}, base = "S_Q"},
+    scandinavian_defense = {order = 3, key = 'scandinavian_defense', unlocked = true, discovered = true, atlas = 'pc_trading', cost = 1, name = "Scandinavian Defense", pos = {x=2,y=0}, set = "CustomCard", config = {chips = 10, mult = 12}, base = "S_Q"},
+    double_up = {order = 4, key = 'double_up', unlocked = true, discovered = true, atlas = 'pc_trading', cost = 1, name = "Double Up", pos = {x=3,y=1}, set = "CustomCard", config = {retriggers = 1}, base = "S_Q"},
+    eye_card = {order = 5, key = 'eye_card', unlocked = true, discovered = true, atlas = 'pc_trading', cost = 1, name = "Eye Card", pos = {x=4,y=1}, set = "CustomCard", config = {chips = 60}, base = "C_A"},
+    playable_joker = {order = 6, key = 'playable_joker', unlocked = true, discovered = true, atlas = 'pc_trading', cost = 1, name = "Playable Joker", pos = {x=0,y=0}, set = "CustomCard", config = {odds = 4}, base = "S_2"},
+    sunflower = {order = 7, key = 'sunflower', unlocked = true, discovered = true, atlas = 'pc_trading', cost = 1, name = "Sunflower", pos = {x=0,y=2}, set = "CustomCard", config = {chips = 8, gain = 6}, base = "D_8"},
+    rules_card = {order = 8, key = 'rules_card', unlocked = true, discovered = true, atlas = 'pc_trading', cost = 1, name = "Rules Card", pos = {x=1,y=2}, set = "CustomCard", config = {discards = 1}, base = "S_A"},
+    wild_draw_4 = {order = 9, key = 'wild_draw_4', unlocked = true, discovered = true, atlas = 'pc_trading', cost = 1, name = "Wild Draw 4", pos = {x=2,y=2}, set = "CustomCard", config = {chips = 4, cards = 4}, base = "C_4"},
+    jack_in_a_box = {order = 10, key = 'jack_in_a_box', unlocked = true, discovered = true, atlas = 'pc_trading', cost = 1, name = "Jack in a Box", pos = {x=3,y=2}, set = "CustomCard", config = {chips = 10, scores = 3, scored = 0}, base = "C_J"},
+    tombstone = {order = 11, key = 'tombstone', unlocked = true, discovered = true, atlas = 'pc_trading', cost = 1, name = "2mbstone", pos = {x=4,y=2}, set = "CustomCard", config = {chips = 2, odds = 3}, base = "S_2"},
+    mane_6 = {order = 12, key = 'mane_6', unlocked = true, discovered = true, atlas = 'pc_trading', cost = 1, name = "Mane 6", pos = {x=0,y=3}, set = "CustomCard", config = {chips = 6, x_mult = 0.2}, base = "H_6"},
+    blank_card = {order = 13, key = 'blank_card', unlocked = true, discovered = true, atlas = 'pc_trading', cost = 1, name = "Blank Card", pos = {x=1,y=3}, set = "CustomCard", config = {}, base = "H_A"},
+    colon_3 = {order = 14, key = 'colon_3', unlocked = true, discovered = true, atlas = 'pc_trading', cost = 1, name = ":3", pos = {x=2,y=3}, set = "CustomCard", config = {chips = 3, scores = 33, scored = 0}, base = "D_3"},
+    golden_ratio = {order = 15, key = 'golden_ratio', unlocked = true, discovered = true, atlas = 'pc_trading', cost = 1, name = "Golden Ratio", pos = {x=3,y=3}, set = "CustomCard", config = {dollars = 1, x_mult = 1.618}, base = "D_2"},
+    double_down = {order = 16, key = 'double_down', unlocked = true, discovered = true, atlas = 'pc_trading', cost = 1, name = "Double Down", pos = {x=4,y=3}, set = "CustomCard", config = {}, base = "H_Q"},
+    pocket_ace = {order = 17, key = 'pocket_ace', unlocked = true, discovered = true, atlas = 'pc_trading', cost = 1, name = "Pocket Ace", pos = {x=0,y=4}, set = "CustomCard", config = {h_chips = 30}, base = "S_A"},
+    haunted_card = {order = 18, key = 'haunted_card', unlocked = true, discovered = true, atlas = 'pc_trading', cost = 1, name = "Haunted Card", pos = {x=1,y=4}, set = "CustomCard", config = {cards = 4}, base = "S_3"},
+    executor = {order = 19, key = 'executor', unlocked = true, discovered = true, atlas = 'pc_trading', cost = 1, name = "Executor", pos = {x=2,y=4}, set = "CustomCard", config = {chips = 3, destroys = 3, destroyed = 0}, base = "C_3"},
+    monarch = {order = 20, key = 'monarch', unlocked = true, discovered = true, atlas = 'pc_trading', cost = 1, name = "Monarch", pos = {x=3,y=4}, set = "CustomCard", config = {chips = 50}, base = "S_K"},
+    meteor = {order = 21, key = 'meteor', unlocked = true, discovered = true, atlas = 'pc_trading', cost = 1, name = "Meteor", pos = {x=4,y=4}, set = "CustomCard", config = {chips = 50, cards = 2}, base = "D_A"},
+ }'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = 'card.lua'
+pattern = '''self.children.center:set_sprite_pos(_center.pos)'''
+position = 'after'
+payload = '''if self.ability and self.ability.trading and self.ability.trading.atlas then
+    self.children.center.atlas = G.ASSET_ATLAS[self.ability.trading.atlas]
+    self.children.center:set_sprite_pos(self.ability.trading.pos)
+end'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = 'card.lua'
+pattern = '''elseif self.config.center.consumeable and self.config.center.demo then'''
+position = 'before'
+payload = '''elseif self.ability and self.ability.trading and self.ability.trading.atlas then
+    self.children.center = Sprite(self.T.x, self.T.y, self.T.w, self.T.h, G.ASSET_ATLAS[self.ability.trading.atlas], self.ability.trading.pos)
+'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = 'functions/common_events.lua'
+pattern = '''if not strip_edition then'''
+position = 'before'
+payload = '''new_card:set_sprites(new_card.config.center)'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = 'functions/state_events.lua'
+pattern = '''for i=1, #pures do'''
+position = 'before'
+payload = '''for k=1, #G.play.cards do
+    local eval = G.play.cards[k]:calculate_exotic({cardarea = G.play, full_hand = G.play.cards, scoring_name = text, poker_hands = poker_hands, does_score = true})
+    if eval then
+        if eval == "remove" then
+            local inside = false
+            for j=1, #scoring_hand do
+                if scoring_hand[j] == G.play.cards[k] then
+                    inside = j
+                end
+            end
+            if inside then
+                table.remove(scoring_hand, inside)
+            end
+        else
+            local inside = false
+            for j=1, #scoring_hand do
+                if scoring_hand[j] == G.play.cards[k] then
+                    inside = true
+                end
+            end
+            if not inside then
+                table.insert(scoring_hand, G.play.cards[k])
+            end
+        end
+    end
+end'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = 'card.lua'
+pattern = '''function Card:is_suit(suit, bypass_debuff, flush_calc)'''
+position = 'after'
+payload = '''   if self.ability and self.ability.trading then
+        local eval = self:calculate_exotic({bypass_debuff = bypass_debuff, flush_calc = flush_calc, is_suit = suit})
+        if eval then
+            return eval
+        end
+    end'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = 'card.lua'
+pattern = '''function Card:get_id()'''
+position = 'after'
+payload = '''   if self.ability and self.ability.trading then
+        local eval = self:calculate_exotic({get_id = true})
+        if eval then
+            return eval
+        end
+    end'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = 'card.lua'
+pattern = '''function Card:can_use_consumeable(any_state, skip_check)'''
+position = 'after'
+payload = '''   if (self.ability.name == 'Strength') or self.ability.consumeable.suit_conv then 
+        for i = 1, #G.hand.highlighted do
+            if G.hand.highlighted[i].ability and G.hand.highlighted[i].ability.trading then return false end
+        end
+    end'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = 'functions/state_events.lua'
+pattern = '''local eval = eval_card(scoring_hand[i], {repetition_only = true,cardarea = G.play, full_hand = G.play.cards, scoring_hand = scoring_hand, scoring_name = text, poker_hands = poker_hands, repetition = true})'''
+position = 'after'
+payload = '''for l=1, #scoring_hand do
+    local eval = scoring_hand[l]:calculate_exotic({cardarea = G.play, other_card = scoring_hand[i], repetition = true, full_hand = G.play.cards, scoring_hand = scoring_hand, scoring_name = text, poker_hands = poker_hands}, {})
+    if next(eval) then
+        for _, minieval in ipairs(eval) do
+            if minieval.repetitions then
+                for h = 1, minieval.repetitions do
+                    reps[#reps+1] = {jokers = {
+                        message = minieval.message,
+                        card = minieval.cards[#minieval.cards],
+                        repetitions = minieval.repetitions,
+                        cards = minieval.cards,
+                    }}
+                end
+            end
+        end
+    end
+end
+for l=1, #G.hand.cards do
+    local eval = G.hand.cards[l]:calculate_exotic({cardarea = G.play, other_card = scoring_hand[i], repetition = true, full_hand = G.play.cards, scoring_hand = scoring_hand, scoring_name = text, poker_hands = poker_hands}, {})
+    if next(eval) then
+        for _, minieval in ipairs(eval) do
+            if minieval.repetitions then
+                for h = 1, minieval.repetitions do
+                    reps[#reps+1] = {jokers = {
+                        message = minieval.message,
+                        card = minieval.cards[#minieval.cards],
+                        repetitions = minieval.repetitions,
+                        cards = minieval.cards,
+                    }}
+                end
+            end
+        end
+    end
+end'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = 'functions/state_events.lua'
+pattern = '''card_eval_status_text((reps[j].jokers or reps[j].seals).card, 'jokers', nil, nil, nil, (reps[j].jokers or reps[j].seals))'''
+position = 'after'
+payload = '''if (reps[j].jokers or reps[j].seals).cards then
+    for k = #(reps[j].jokers or reps[j].seals).cards - 1, 1, -1 do
+        card_eval_status_text((reps[j].jokers or reps[j].seals).cards[k], 'jokers', nil, nil, nil, (reps[j].jokers or reps[j].seals))
+    end
+end
+'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = 'game.lua'
+pattern = '''table.sort(self.P_CENTER_POOLS["Seal"], function (a, b) return a.order < b.order end)'''
+position = 'after'
+payload = '''table.sort(self.P_CENTER_POOLS["Exotic"], function (a, b) return a.order < b.order end)'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = 'game.lua'
+pattern = '''for k, v in pairs(self.P_STAKES) do'''
+position = 'before'
+payload = '''for k, v in pairs(self.P_TRADING) do
+    v.key = k
+    if not v.wip and not v.demo then 
+        table.insert(self.P_CENTER_POOLS["Exotic"], v)
+    end
+end'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = 'game.lua'
+pattern = '''Stake = {},'''
+position = 'after'
+payload = '''Exotic = {},'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = 'card.lua'
+pattern = '''function Card:set_ability(center, initial, delay_sprites)'''
+position = 'after'
+payload = '''   if self.ability and self.ability.trading and (center ~= G.P_CENTERS["m_pc_trading"]) then
+        self.ability.trading = nil
+    elseif self.ability and not self.ability.trading and (center == G.P_CENTERS["m_pc_trading"]) then
+        local key = G.P_TRADING[get_trading_key()]
+        self.ability.trading = copy_table(key)
+    end'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = 'functions/common_events.lua'
+pattern = '''function eval_card(card, context)'''
+position = 'after'
+payload = '''   local special_eval = nil
+    if context.discard and (context.full_hand == G.hand.highlighted) then
+        special_eval = card:calculate_exotic({discard = true, full_hand = G.hand.highlighted}, {})
+    end
+    if special_eval and special_eval.remove then
+        ret.remove = true
+    end'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = 'functions/state_events.lua'
+pattern = '''local cards = {}'''
+position = 'before'
+payload = '''for j = 1, #G.hand.highlighted do
+    G.hand.highlighted[j]:calculate_exotic({pre_discard = true, full_hand = G.hand.highlighted}, {})
+end'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = 'functions/state_events.lua'
+pattern = '''local hand_text_set = false'''
+position = 'before'
+payload = '''for k=1, #G.play.cards do
+    G.play.cards[k]:calculate_exotic({cardarea = G.play, full_hand = G.play.cards, scoring_hand = scoring_hand, scoring_name = text, poker_hands = poker_hands, before = true})
+end'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = 'card.lua'
+pattern = '''function Card:is_face(from_boss)'''
+position = 'after'
+payload = '''if self.ability and self.ability.trading then
+        local eval = self:calculate_exotic({from_boss = from_boss, is_face = true})
+        if eval then
+            return eval
+        end
+    end'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = 'card.lua'
+pattern = '''if self.children.use_button then self.children.use_button:remove(); self.children.use_button = nil end'''
+position = 'after'
+payload = '''if self.children.rank_button then self.children.use_button:remove(); self.children.rank_button = nil end'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = 'card.lua'
+pattern = '''self.highlighted = is_higlighted'''
+position = 'after'
+payload = '''if self.playing_card then
+    if self.highlighted and self.ability and self.ability.trading and (self.ability.trading.name == "Blank Card") and (self.area == G.hand) then
+        self.children.rank_button = UIBox{
+            definition = G.UIDEF.rank_buttons(self), 
+            config = {align=
+                    ((self.area == G.jokers) or (self.area == G.consumeables)) and "cr" or
+                    "bmi"
+                , offset = 
+                    ((self.area == G.jokers) or (self.area == G.consumeables)) and {x= - 0.4,y=-0.25*G.CARD_H} or
+                    {x=0,y=0.65},
+                parent =self}
+        }
+    elseif self.children.rank_button then
+        self.children.rank_button:remove()
+        self.children.rank_button = nil
+    end
+end'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = 'functions/state_events.lua'
+pattern = '''if destroyed then'''
+position = 'before'
+payload = '''if scoring_hand[i]:calculate_exotic({destroying_card = scoring_hand[i], full_hand = G.play.cards}) == true then destroyed = true end'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = 'card.lua'
+pattern = '''function Card:set_perishable(_perishable)'''
+position = 'after'
+payload = '''   if self.ability.force_perish then
+        return
+    end'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = 'functions/state_events.lua'
+pattern = '''check_for_unlock({type = 'hand_contents', cards = G.play.cards})'''
+position = 'after'
+payload = '''G.E_MANAGER:add_event(Event({
+    trigger = 'immediate',
+        func = function()
+            for k=1, #G.play.cards do
+                G.play.cards[k]:calculate_exotic({cardarea = G.play, full_hand = G.play.cards, very_before = true})
+            end
+        return true
+    end
+}))'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = 'functions/state_events.lua'
+pattern = '''if G.GAME.modifiers.debuff_played_cards then'''
+position = 'before'
+payload = '''for k=1, #G.play.cards do
+    G.play.cards[k]:calculate_exotic({cardarea = G.play, full_hand = G.play.cards, scoring_hand = scoring_hand, scoring_name = text, poker_hands = poker_hands, after = true})
+end'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = 'functions/state_events.lua'
+pattern = '''for i=1, #G.hand.cards do'''
+position = 'after'
+payload = '''   local pc_in_hand = true'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = 'functions/state_events.lua'
+pattern = '''for i=1, #scoring_hand do'''
+position = 'after'
+payload = '''   local pc_in_scoring = true'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = 'functions/state_events.lua'
+pattern = '''if reps[j] == 1 then'''
+position = 'before'
+payload = '''   if pc_in_hand then
+        if not pc_end_round then
+            for k=1, #scoring_hand do
+                local eval = scoring_hand[k]:calculate_exotic({cardarea = G.hand, full_hand = G.play.cards, scoring_hand = scoring_hand, scoring_name = text, poker_hands = poker_hands, other_card = G.hand.cards[i], individual = true, pc_end_round = pc_end_round}, {})
+                if eval then 
+                    for l = 1, #eval do
+                        table.insert(effects, eval[l])
+                    end
+                end
+            end
+        end
+        for k=1, #G.hand.cards do
+            local eval = G.hand.cards[k]:calculate_exotic({cardarea = G.hand, full_hand = G.play.cards, scoring_hand = scoring_hand, scoring_name = text, poker_hands = poker_hands, other_card = G.hand.cards[i], individual = true, pc_end_round = pc_end_round}, {})
+            if eval then 
+                for l = 1, #eval do
+                    table.insert(effects, eval[l])
+                end
+            end
+        end
+        local exotic_eval = G.hand.cards[i]:calculate_exotic({cardarea = G.hand, full_hand = G.play.cards, scoring_hand = scoring_hand, scoring_name = text, poker_hands = poker_hands, playing_card_hand = true, pc_end_round = pc_end_round})
+        if exotic_eval then
+            for l = 1, #exotic_eval do
+                table.insert(effects, exotic_eval[l])
+            end
+        end
+    end'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = 'functions/state_events.lua'
+pattern = '''local eval = eval_card(G.hand.cards[i], {end_of_round = true,cardarea = G.hand, repetition = true, repetition_only = true})'''
+position = 'after'
+payload = '''for l=1, #G.hand.cards do
+    local eval = G.hand.cards[l]:calculate_exotic({cardarea = G.hand, other_card = G.hand.cards[i], repetition = true, full_hand = G.play.cards, scoring_hand = scoring_hand, scoring_name = text, poker_hands = poker_hands, end_of_round = true}, {})
+    if next(eval) then
+        for _, minieval in ipairs(eval) do
+            if minieval.repetitions then
+                for h = 1, minieval.repetitions do
+                    reps[#reps+1] = {jokers = {
+                        message = minieval.message,
+                        card = minieval.cards[#minieval.cards],
+                        repetitions = minieval.repetitions,
+                        cards = minieval.cards,
+                    }}
+                end
+            end
+        end
+    end
+end'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = 'functions/state_events.lua'
+pattern = '''local eval = eval_card(G.hand.cards[i], {repetition_only = true,cardarea = G.hand, full_hand = G.play.cards, scoring_hand = scoring_hand, scoring_name = text, poker_hands = poker_hands, repetition = true, card_effects = effects})'''
+position = 'after'
+payload = '''for l=1, #scoring_hand do
+    local eval = scoring_hand[l]:calculate_exotic({cardarea = G.hand, other_card = G.hand.cards[i], repetition = true, full_hand = G.play.cards, scoring_hand = scoring_hand, scoring_name = text, poker_hands = poker_hands}, {})
+    if next(eval) then
+        for _, minieval in ipairs(eval) do
+            if minieval.repetitions then
+                for h = 1, minieval.repetitions do
+                    reps[#reps+1] = {jokers = {
+                        message = minieval.message,
+                        card = minieval.cards[#minieval.cards],
+                        repetitions = minieval.repetitions,
+                        cards = minieval.cards,
+                    }}
+                end
+            end
+        end
+    end
+end
+for l=1, #G.hand.cards do
+    local eval = G.hand.cards[l]:calculate_exotic({cardarea = G.hand, other_card = G.hand.cards[i], repetition = true, full_hand = G.play.cards, scoring_hand = scoring_hand, scoring_name = text, poker_hands = poker_hands}, {})
+    if next(eval) then
+        for _, minieval in ipairs(eval) do
+            if minieval.repetitions then
+                for h = 1, minieval.repetitions do
+                    reps[#reps+1] = {jokers = {
+                        message = minieval.message,
+                        card = minieval.cards[#minieval.cards],
+                        repetitions = minieval.repetitions,
+                        cards = minieval.cards,
+                    }}
+                end
+            end
+        end
+    end
+end'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = 'functions/state_events.lua'
+pattern = '''function end_round()'''
+position = 'after'
+payload = '''   local pc_end_round = true'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = 'functions/state_events.lua'
+pattern = '''G.RESET_BLIND_STATES = true'''
+position = 'after'
+payload = '''local delete_these = {}
+for i = 1, #G.playing_cards do
+    if G.playing_cards[i].ability.fleeting then
+        table.insert(delete_these, G.playing_cards[i])
+    end
+    G.playing_cards[i].ability.pc_drawn_to_hand = nil
+end
+for i = 1, #delete_these do
+    delete_these[i]:remove()
+end'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = 'functions/state_events.lua'
+pattern = '''if effects[ii].h_mult then'''
+position = 'before'
+payload = '''
+if effects[ii].pc_h_chips then
+    mod_percent = true
+    hand_chips = mod_mult(hand_chips + effects[ii].pc_h_chips)
+    update_hand_text({delay = 0}, {chips = hand_chips})
+    card_eval_status_text(G.hand.cards[i], 'chips', effects[ii].pc_h_chips, percent)
+end
+if effects[ii].extra then 
+    if effects[ii].card then juice_card(effects[ii].card) end
+    local extras = {mult = false, hand_chips = false}
+    if effects[ii].extra.mult_mod then mult =mod_mult( mult + effects[ii].extra.mult_mod);extras.mult = true end
+    if effects[ii].extra.chip_mod then hand_chips = mod_chips(hand_chips + effects[ii].extra.chip_mod);extras.hand_chips = true end
+    if effects[ii].extra.swap then 
+        local old_mult = mult
+        mult = mod_mult(hand_chips)
+        hand_chips = mod_chips(old_mult)
+        extras.hand_chips = true; extras.mult = true
+    end
+    if effects[ii].extra.func then effects[ii].extra.func() end
+    update_hand_text({delay = 0}, {chips = extras.hand_chips and hand_chips, mult = extras.mult and mult})
+end
+'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = 'card.lua'
+pattern = '''local badges = {}'''
+position = 'after'
+payload = '''if loc_vars then loc_vars.collect = (self.ability and self.ability.trading or nil) end'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = 'functions/state_events.lua'
+pattern = '''G.FUNCS.play_cards_from_highlighted = function(e)'''
+position = 'after'
+payload = '''   
+    for i = 1, #G.hand.highlighted do
+        if G.hand.highlighted[i].ability and G.hand.highlighted[i].ability.phantom then
+            G.hand.highlighted[i]:juice_up()
+            G.E_MANAGER:add_event(Event({
+                trigger = 'immediate',
+                func = function()
+                    G.STATE = G.STATES.DRAW_TO_HAND
+                    G.STATE_COMPLETE = false
+                    return true
+                end
+            }))
+            return
+        end
+    end
+    for i = 1, #G.hand.cards do
+        if G.hand.cards[i].ability and G.hand.cards[i].ability.phantom then
+            G.hand.cards[i].ability.phantom = nil
+        end
+    end'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = 'card.lua'
+pattern = '''elseif self.sprite_facing == 'back' then'''
+position = 'before'
+payload = '''if self.ability and self.ability.phantom then
+    self.children.center:draw_shader('pc_phantom', nil, self.ARGS.send_to_shader)
+    if self.children.front and self.ability.effect ~= 'Stone Card' and not self.config.center.replace_base_card then
+        self.children.front:draw_shader('pc_phantom', nil, self.ARGS.send_to_shader)
+    end
+end'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = 'functions/common_events.lua'
+pattern = '''--Fill all remaining info if this is the main desc'''
+position = 'before'
+payload = '''if card and card.ability and card.ability.phantom then info_queue[#info_queue+1] = {key = 'phantom', set = 'Other'} end
+if card and card.ability and card.ability.fleeting then info_queue[#info_queue+1] = {key = 'fleeting', set = 'Other'} end'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = 'functions/state_events.lua'
+pattern = '''G.FUNCS.discard_cards_from_highlighted = function(e, hook)'''
+position = 'after'
+payload = '''   for i = 1, #G.hand.cards do
+        if G.hand.cards[i].ability and G.hand.cards[i].ability.phantom then
+            G.hand.cards[i].ability.phantom = nil
+        end
+    end'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = 'blind.lua'
+pattern = '''function Blind:stay_flipped(area, card)'''
+position = 'after'
+payload = '''   
+    if phantom_cards and (area == G.hand) then
+        card.ability.phantom = true
+    end'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = 'game.lua'
+pattern = '''G.GAME.blind:drawn_to_hand()'''
+position = 'before'
+payload = '''phantom_cards = nil
+for i = 1, #G.hand.cards do
+    if G.hand.cards[i].ability.trading then
+        G.hand.cards[i]:calculate_exotic({drawn = G.hand, facing_blind = G.GAME.facing_blind}, {})
+    end
+end
+'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = 'functions/state_events.lua'
+pattern = '''if G.GAME.blind.name == 'The Serpent' and'''
+position = 'before'
+payload = '''if G.GAME.pc_hand_size_bonus then
+    if hand_space <= 0 then
+        hand_space = math.max(0, math.min(G.hand.config.card_limit - #G.hand.cards, 0) + G.GAME.pc_hand_size_bonus)
+    else
+        hand_space = hand_space + G.GAME.pc_hand_size_bonus
+    end
+    G.GAME.pc_hand_size_bonus = nil
+end'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = 'cardarea.lua'
+pattern = '''if area == G.discard then'''
+position = 'before'
+payload = '''card.ability.pc_drawn_to_hand = true'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = 'functions/common_events.lua'
+pattern = '''function copy_card(other, new_card, card_scale, playing_card, strip_edition)'''
+position = 'after'
+payload = '''   local old_fleeting = other.ability and other.ability.fleeting or nil
+    if new_card and new_card.ability then
+        old_fleeting = new_card.ability.fleeting
+    end
+    local new_phantom = other.ability and other.ability.phantom or nil'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = 'functions/common_events.lua'
+pattern = '''new_card:set_sprites(new_card.config.center)'''
+position = 'before'
+payload = '''new_card.ability.fleeting = old_fleeting
+new_card.ability.phantom = new_phantom'''
+match_indent = true
