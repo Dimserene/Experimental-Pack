@@ -124,3 +124,12 @@
 [submodule "Mods/Ro-Balatro-Reborn"]
 	path = Mods/Ro-Balatro-Reborn
 	url = https://github.com/AlexZGreat/Ro-Balatro-Reborn
+[submodule "Mods/AdAbsurdum"]
+	path = Mods/AdAbsurdum
+	url = https://github.com/7f-galaxii/AdAbsurdum
+[submodule "Mods/Emporium"]
+	path = Mods/Emporium
+	url = https://github.com/krokshut/Emporium
+[submodule "Mods/NoFantasy"]
+	path = Mods/NoFantasy
+	url = https://github.com/fantasygone/nofantasyJokers/
