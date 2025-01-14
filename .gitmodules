@@ -94,9 +94,6 @@
 [submodule "Mods/Seven-Deadly-Decks"]
 	path = Mods/Seven-Deadly-Decks
 	url = https://github.com/AstroLightz/Balatro-7DeadlyDecks
-[submodule "Mods/Talisman"]
-	path = Mods/Talisman
-	url = https://github.com/MathIsFun0/Talisman
 [submodule "Mods/TatteredDecks"]
 	path = Mods/TatteredDecks
 	url = https://github.com/Cheesy-Brik/TatteredDecks
@@ -133,3 +130,6 @@
 [submodule "Mods/NoFantasy"]
 	path = Mods/NoFantasy
 	url = https://github.com/fantasygone/nofantasyJokers/
+[submodule "Mods/Talisman"]
+	path = Mods/Talisman
+	url = https://github.com/MathIsFun0/Talisman
