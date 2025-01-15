@@ -97,9 +97,6 @@
 [submodule "Mods/TatteredDecks"]
 	path = Mods/TatteredDecks
 	url = https://github.com/Cheesy-Brik/TatteredDecks
-[submodule "Mods/TOGAPackBalatro"]
-	path = Mods/TOGAPackBalatro
-	url = https://github.com/TheOneGoofAli/TOGAPackBalatro
 [submodule "Mods/TooManyJokers"]
 	path = Mods/TooManyJokers
 	url = https://github.com/cg-223/toomanyjokers
@@ -124,12 +121,12 @@
 [submodule "Mods/AdAbsurdum"]
 	path = Mods/AdAbsurdum
 	url = https://github.com/7f-galaxii/AdAbsurdum
-[submodule "Mods/Emporium"]
-	path = Mods/Emporium
-	url = https://github.com/krokshut/Emporium
 [submodule "Mods/NoFantasy"]
 	path = Mods/NoFantasy
 	url = https://github.com/fantasygone/nofantasyJokers/
-[submodule "Mods/Talisman"]
-	path = Mods/Talisman
-	url = https://github.com/MathIsFun0/Talisman
+[submodule "Mods/Isaactro"]
+	path = Mods/Isaactro
+	url = https://github.com/WilliamFlinchbaugh/Isaactro
+[submodule "Mods/JimboRecords"]
+	path = Mods/JimboRecords
+	url = https://github.com/TherkLe/JimboRecords
