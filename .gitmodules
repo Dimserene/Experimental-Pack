@@ -130,3 +130,9 @@
 [submodule "Mods/JimboRecords"]
 	path = Mods/JimboRecords
 	url = https://github.com/TherkLe/JimboRecords
+[submodule "Mods/Dungeon"]
+	path = Mods/Dungeon
+	url = https://github.com/Mathguy23/Dungeon
+[submodule "Mods/CelesteCardCollection"]
+	path = Mods/CelesteCardCollection
+	url = https://github.com/AuroraKy/CelesteCardCollection
