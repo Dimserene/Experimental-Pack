@@ -169,3 +169,6 @@
 [submodule "Mods/CustomSuitOrder"]
 	path = Mods/CustomSuitOrder
 	url = https://github.com/DigitalDetective47/suit-order
+[submodule "Mods/ArtOfTheDeal"]
+	path = Mods/ArtOfTheDeal
+	url = https://github.com/radbanker/Art-of-the-Deal.The-peoples-card-collection
