@@ -172,3 +172,6 @@
 [submodule "Mods/DeckSkinsLite"]
 	path = Mods/DeckSkinsLite
 	url = https://github.com/Dimserene/DeckSkinsLite
+[submodule "Mods/MetroCard"]
+	path = Mods/MetroCard
+	url = https://github.com/JegMetroCard/MetroCard
