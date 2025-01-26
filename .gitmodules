@@ -85,9 +85,6 @@
 [submodule "Mods/Paperback"]
 	path = Mods/Paperback
 	url = https://github.com/GitNether/paperback
-[submodule "Mods/Pokermon"]
-	path = Mods/Pokermon
-	url = https://github.com/InertSteak/Pokermon
 [submodule "Mods/Seven-Deadly-Decks"]
 	path = Mods/Seven-Deadly-Decks
 	url = https://github.com/AstroLightz/Balatro-7DeadlyDecks
