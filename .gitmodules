@@ -175,3 +175,6 @@
 [submodule "Mods/MetroCard"]
 	path = Mods/MetroCard
 	url = https://github.com/JegMetroCard/MetroCard
+[submodule "Mods/TheAutumnCircus"]
+	path = Mods/TheAutumnCircus
+	url = https://github.com/Dimserene/TheAutumnCircus
