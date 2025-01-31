@@ -43,9 +43,6 @@
 [submodule "Mods/Flower-Pot"]
 	path = Mods/Flower-Pot
 	url = https://github.com/GauntletGames-2086/Flower-Pot
-[submodule "Mods/FlushHotkeys"]
-	path = Mods/FlushHotkeys
-	url = https://github.com/Agoraaa/FlushHotkeys
 [submodule "Mods/Fusion-Jokers"]
 	path = Mods/Fusion-Jokers
 	url = https://github.com/lshtech/Fusion-Jokers
@@ -124,9 +121,6 @@
 [submodule "Mods/JimboRecords"]
 	path = Mods/JimboRecords
 	url = https://github.com/TherkLe/JimboRecords
-[submodule "Mods/Dungeon"]
-	path = Mods/Dungeon
-	url = https://github.com/Mathguy23/Dungeon
 [submodule "Mods/CelesteCardCollection"]
 	path = Mods/CelesteCardCollection
 	url = https://github.com/AuroraKy/CelesteCardCollection
@@ -181,3 +175,6 @@
 [submodule "Mods/Tesseract"]
 	path = Mods/Tesseract
 	url = https://github.com/hyperxwastaken/Tesseract
+[submodule "Mods/FlushHotkeys"]
+	path = Mods/FlushHotkeys
+	url = https://github.com/Dimserene/FlushHotkeys
