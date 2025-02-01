@@ -37,9 +37,6 @@
 [submodule "Mods/ExtraCredit"]
 	path = Mods/ExtraCredit
 	url = https://github.com/GuilloryCraft/ExtraCredit
-[submodule "Mods/Familiar"]
-	path = Mods/Familiar
-	url = https://github.com/RattlingSnow353/Familiar
 [submodule "Mods/Flower-Pot"]
 	path = Mods/Flower-Pot
 	url = https://github.com/GauntletGames-2086/Flower-Pot
@@ -64,24 +61,12 @@
 [submodule "Mods/JokerDisplay"]
 	path = Mods/JokerDisplay
 	url = https://github.com/nh6574/JokerDisplay
-[submodule "Mods/MixedPotion"]
-	path = Mods/MixedPotion
-	url = https://github.com/snowylight/MixedPotion
 [submodule "Mods/MOARJokers"]
 	path = Mods/MOARJokers
 	url = https://github.com/MrSmoothieHuman1/MOARJokers
 [submodule "Mods/ModPackFixes"]
 	path = Mods/ModPackFixes
 	url = https://github.com/lshtech/ModPackFixes
-[submodule "Mods/MoreJokerPacks"]
-	path = Mods/MoreJokerPacks
-	url = https://github.com/Samario1/MoreJokerPacks
-[submodule "Mods/No-Laughing-Matter"]
-	path = Mods/No-Laughing-Matter
-	url = https://github.com/Minirebel/no-laughing-matter
-[submodule "Mods/Paperback"]
-	path = Mods/Paperback
-	url = https://github.com/GitNether/paperback
 [submodule "Mods/Seven-Deadly-Decks"]
 	path = Mods/Seven-Deadly-Decks
 	url = https://github.com/AstroLightz/Balatro-7DeadlyDecks
@@ -94,21 +79,12 @@
 [submodule "Mods/Trance"]
 	path = Mods/Trance
 	url = https://github.com/MathIsFun0/Trance
-[submodule "Mods/Tsunami"]
-	path = Mods/Tsunami
-	url = https://github.com/Maratby/Tsunami
 [submodule "Mods/Warpzone"]
 	path = Mods/Warpzone
 	url = https://github.com/frangnosquest/Warpzone
 [submodule "Mods/YART"]
 	path = Mods/YART
 	url = https://github.com/DigitalDetective47/yart
-[submodule "Mods/Your-Only-Move-Is-GAMBLE"]
-	path = Mods/Your-Only-Move-Is-GAMBLE
-	url = https://github.com/ddf9795/balatro-yomi-gamble
-[submodule "Mods/Ro-Balatro-Reborn"]
-	path = Mods/Ro-Balatro-Reborn
-	url = https://github.com/AlexZGreat/Ro-Balatro-Reborn
 [submodule "Mods/AdAbsurdum"]
 	path = Mods/AdAbsurdum
 	url = https://github.com/7f-galaxii/AdAbsurdum
