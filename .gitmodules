@@ -19,9 +19,6 @@
 [submodule "Mods/Cosmos"]
 	path = Mods/Cosmos
 	url = https://github.com/neatoqueen/Cosmos
-[submodule "Mods/CrashAvoider"]
-	path = Mods/CrashAvoider
-	url = https://github.com/WilsontheWolf/CrashAvoider
 [submodule "Mods/Cryptid"]
 	path = Mods/Cryptid
 	url = https://github.com/MathIsFun0/Cryptid
@@ -133,9 +130,6 @@
 [submodule "Mods/ArtOfTheDeal"]
 	path = Mods/ArtOfTheDeal
 	url = https://github.com/radbanker/Art-of-the-Deal.The-peoples-card-collection
-[submodule "Mods/Misers_Menagerie"]
-	path = Mods/Misers_Menagerie
-	url = https://github.com/Dimserene/Misers_Menagerie
 [submodule "Mods/DeckSkinsLite"]
 	path = Mods/DeckSkinsLite
 	url = https://github.com/Dimserene/DeckSkinsLite
