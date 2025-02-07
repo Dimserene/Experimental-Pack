@@ -112,9 +112,6 @@
 [submodule "Mods/Maximus"]
 	path = Mods/Maximus
 	url = https://github.com/the-Astra/Maximus
-[submodule "Mods/PrinterJokers"]
-	path = Mods/PrinterJokers
-	url = https://github.com/Cdrvo/PrinterJokers---Balatro-Mod
 [submodule "Mods/Pauper-Deck"]
 	path = Mods/Pauper-Deck
 	url = https://github.com/AiksiLotl/Pauper-Deck
@@ -235,3 +232,6 @@
 [submodule "Mods/Redux-Arcanum"]
 	path = Mods/Redux-Arcanum
 	url = https://github.com/jumbocarrot0/Redux-Arcanum
+[submodule "Mods/Revos-Vault"]
+	path = Mods/Revos-Vault
+	url = https://github.com/Cdrvo/Revos-Vault---Balatro-Mod
