@@ -145,9 +145,6 @@
 [submodule "Mods/FlushHotkeys"]
 	path = Mods/FlushHotkeys
 	url = https://github.com/Dimserene/FlushHotkeys
-[submodule "Mods/Fools-Gambit"]
-	path = Mods/Fools-Gambit
-	url = https://github.com/jenkuuuuuu/Fools-Gambit
 [submodule "Mods/Kaboomers"]
 	path = Mods/Kaboomers
 	url = https://github.com/29cmb/Kaboomers
