@@ -229,9 +229,24 @@
 [submodule "Mods/Maxines-Joker-Pack"]
 	path = Mods/Maxines-Joker-Pack
 	url = https://github.com/MaxIsJoe/maxine-balatro-mod
-[submodule "Mods/Redux-Arcanum"]
-	path = Mods/Redux-Arcanum
-	url = https://github.com/jumbocarrot0/Redux-Arcanum
 [submodule "Mods/Revos-Vault"]
 	path = Mods/Revos-Vault
 	url = https://github.com/Cdrvo/Revos-Vault---Balatro-Mod
+[submodule "Mods/YACBM"]
+	path = Mods/YACBM
+	url = https://github.com/Trif3ctal/YACBM
+[submodule "Mods/NeatoJokers"]
+	path = Mods/NeatoJokers
+	url = https://github.com/neatoqueen/NeatoJokers
+[submodule "Mods/SystemClock"]
+	path = Mods/SystemClock
+	url = https://github.com/Breezebuilder/SystemClock
+[submodule "Mods/Baliatro"]
+	path = Mods/Baliatro
+	url = https://github.com/baliame/Baliatro
+[submodule "Mods/Baladrone"]
+	path = Mods/Baladrone
+	url = https://github.com/fantasygone/Baladrone
+[submodule "Mods/Slotmachine"]
+	path = Mods/Slotmachine
+	url = https://github.com/boldboldness/slotmachine
