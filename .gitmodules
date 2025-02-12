@@ -181,9 +181,6 @@
 [submodule "Mods/ColorblindSeals"]
 	path = Mods/ColorblindSeals
 	url = https://github.com/martinkauppinen/colorblind-seals
-[submodule "Mods/Finn-Pokemon-Jokers"]
-	path = Mods/Finn-Pokemon-Jokers
-	url = https://github.com/Finnaware/Finn-Pokemon-Jokers/
 [submodule "Mods/MarvelMidnightSuns"]
 	path = Mods/MarvelMidnightSuns
 	url = https://github.com/Staegloth/BalatroMarvelMidnightSuns/
@@ -220,9 +217,6 @@
 [submodule "Mods/EvaJokers"]
 	path = Mods/EvaJokers
 	url = https://github.com/Toringen/EvaJokers
-[submodule "Mods/Order"]
-	path = Mods/Order
-	url = https://github.com/pinkmaggit-hub/Order/
 [submodule "Mods/Maxines-Joker-Pack"]
 	path = Mods/Maxines-Joker-Pack
 	url = https://github.com/MaxIsJoe/maxine-balatro-mod
