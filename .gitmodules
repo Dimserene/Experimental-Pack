@@ -22,9 +22,6 @@
 [submodule "Mods/Cryptid"]
 	path = Mods/Cryptid
 	url = https://github.com/MathIsFun0/Cryptid
-[submodule "Mods/DebugPlus"]
-	path = Mods/DebugPlus
-	url = https://github.com/WilsontheWolf/DebugPlus
 [submodule "Mods/DiscoveryManager"]
 	path = Mods/DiscoveryManager
 	url = https://github.com/lshtech/DiscoveryManager
@@ -229,3 +226,6 @@
 [submodule "Mods/Grim"]
 	path = Mods/Grim
 	url = https://github.com/Dimserene/Grim
+[submodule "Mods/DebugPlus"]
+	path = Mods/DebugPlus
+	url = https://github.com/Dimserene/DebugPlus
