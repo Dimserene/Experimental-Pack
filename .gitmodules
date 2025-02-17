@@ -37,9 +37,6 @@
 [submodule "Mods/MintysSillyMod"]
 	path = Mods/MintysSillyMod
 	url = https://github.com/wingedcatgirl/MintysSillyMod
-[submodule "Mods/Maximus"]
-	path = Mods/Maximus
-	url = https://github.com/the-Astra/Maximus
 [submodule "Mods/Pauper-Deck"]
 	path = Mods/Pauper-Deck
 	url = https://github.com/AiksiLotl/Pauper-Deck
