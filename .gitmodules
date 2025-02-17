@@ -64,9 +64,6 @@
 [submodule "Mods/Leapfrog-Balatro-Deck"]
 	path = Mods/Leapfrog-Balatro-Deck
 	url = https://github.com/superdotaplaya/Leapfrog-Balatro-Deck
-[submodule "Mods/Holotro"]
-	path = Mods/Holotro
-	url = https://github.com/RivFalcon/Holotro
 [submodule "Mods/Unsorted"]
 	path = Mods/Unsorted
 	url = https://github.com/Telbone/Unsorted
@@ -172,3 +169,18 @@
 [submodule "Mods/TOGAPackBalatro"]
 	path = Mods/TOGAPackBalatro
 	url = https://github.com/TheOneGoofAli/TOGAPackBalatro
+[submodule "Mods/Holotro"]
+	path = Mods/Holotro
+	url = https://github.com/Dimserene/Holotro
+[submodule "Mods/Showdown"]
+	path = Mods/Showdown
+	url = https://github.com/Mistyk1/Showdown
+[submodule "Mods/Fortune"]
+	path = Mods/Fortune
+	url = https://github.com/Maratby/Fortune
+[submodule "Mods/Mistigris"]
+	path = Mods/Mistigris
+	url = https://github.com/astrapboy/Mistigris
+[submodule "Mods/JokeRefactor"]
+	path = Mods/JokeRefactor
+	url = https://github.com/AiksiLotl/JokeRefactor
