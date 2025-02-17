@@ -7,9 +7,6 @@
 [submodule "Mods/DiscoveryManager"]
 	path = Mods/DiscoveryManager
 	url = https://github.com/lshtech/DiscoveryManager
-[submodule "Mods/ExtendedBlueprint"]
-	path = Mods/ExtendedBlueprint
-	url = https://github.com/Toneblock/balatro-ExtendedBlueprint
 [submodule "Mods/Flower-Pot"]
 	path = Mods/Flower-Pot
 	url = https://github.com/GauntletGames-2086/Flower-Pot
@@ -34,18 +31,9 @@
 [submodule "Mods/ModPackFixes"]
 	path = Mods/ModPackFixes
 	url = https://github.com/lshtech/ModPackFixes
-[submodule "Mods/Seven-Deadly-Decks"]
-	path = Mods/Seven-Deadly-Decks
-	url = https://github.com/AstroLightz/Balatro-7DeadlyDecks
-[submodule "Mods/TatteredDecks"]
-	path = Mods/TatteredDecks
-	url = https://github.com/Cheesy-Brik/TatteredDecks
 [submodule "Mods/TooManyJokers"]
 	path = Mods/TooManyJokers
 	url = https://github.com/cg-223/toomanyjokers
-[submodule "Mods/CelesteCardCollection"]
-	path = Mods/CelesteCardCollection
-	url = https://github.com/AuroraKy/CelesteCardCollection
 [submodule "Mods/MintysSillyMod"]
 	path = Mods/MintysSillyMod
 	url = https://github.com/wingedcatgirl/MintysSillyMod
