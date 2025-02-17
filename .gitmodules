@@ -247,3 +247,15 @@
 [submodule "Mods/JokerHub"]
 	path = Mods/JokerHub
 	url = https://github.com/sup3p/JokerHub
+[submodule "Mods/Steamodded"]
+	path = Mods/Steamodded
+	url = https://github.com/Steamodded/smods
+[submodule "Mods/Ortalab-DEMO"]
+	path = Mods/Ortalab-DEMO
+	url = https://github.com/Eremel/Ortalab
+[submodule "Mods/UnStable"]
+	path = Mods/UnStable
+	url = https://github.com/kirbio/UnStable
+[submodule "Mods/UnStableEX"]
+	path = Mods/UnStableEX
+	url = https://github.com/kirbio/UnStableEX
