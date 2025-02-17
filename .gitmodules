@@ -115,9 +115,6 @@
 [submodule "Mods/SarcPot"]
 	path = Mods/SarcPot
 	url = https://github.com/SarcPot/sarcpot-mod
-[submodule "Mods/Bakery"]
-	path = Mods/Bakery
-	url = https://github.com/BakersDozenBagels/BalatroBakery
 [submodule "Mods/LuckyJimbos"]
 	path = Mods/LuckyJimbos
 	url = https://github.com/MamiKeRiko/luckyjimbos
