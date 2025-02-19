@@ -67,9 +67,6 @@
 [submodule "Mods/Unsorted"]
 	path = Mods/Unsorted
 	url = https://github.com/Telbone/Unsorted
-[submodule "Mods/Aikoyoris-Shenanigans"]
-	path = Mods/Aikoyoris-Shenanigans
-	url = https://github.com/Aikoyori/Balatro-Aikoyoris-Shenanigans
 [submodule "Mods/Lock-The-Deal"]
 	path = Mods/Lock-The-Deal
 	url = https://gitlab.com/lnxfca-dev/balatro-mods/lock-the-deal
@@ -139,12 +136,6 @@
 [submodule "Mods/Pestrica"]
 	path = Mods/Pestrica
 	url = https://github.com/marinaposting/PesJkr
-[submodule "Mods/The-Binding-Of-Jimbo"]
-	path = Mods/The-Binding-Of-Jimbo
-	url = https://github.com/h3llo-wor1d/The-Binding-Of-Jimbo
-[submodule "Mods/Hit"]
-	path = Mods/Hit
-	url = https://github.com/Mathguy23/Hit
 [submodule "Mods/Zeros-Assortment"]
 	path = Mods/Zeros-Assortment
 	url = https://github.com/Zero4793/Zeros-Assortment
@@ -178,3 +169,18 @@
 [submodule "Mods/Fortune"]
 	path = Mods/Fortune
 	url = https://github.com/Maratby/Fortune
+[submodule "Mods/Plantain"]
+	path = Mods/Plantain
+	url = https://github.com/IcebergLettuce0/Plantain
+[submodule "Mods/Vicsmod"]
+	path = Mods/Vicsmod
+	url = https://github.com/vicentun/Vicsmod
+[submodule "Mods/Join-The-Crowd"]
+	path = Mods/Join-The-Crowd
+	url = https://github.com/MilkyQeue/join-the-crowd-mod/
+[submodule "Mods/AzzysJokers"]
+	path = Mods/AzzysJokers
+	url = https://github.com/AstrumNativus/AzzysJokers
+[submodule "Mods/Mossed"]
+	path = Mods/Mossed
+	url = https://github.com/ScribbleIsError/Mossed
