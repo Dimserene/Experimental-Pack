@@ -197,3 +197,6 @@
 [submodule "Mods/Reverse_Tarots"]
 	path = Mods/Reverse_Tarots
 	url = https://github.com/Dimserene/Reverse_Tarots
+[submodule "Mods/PMCSBalatro"]
+	path = Mods/PMCSBalatro
+	url = https://github.com/Dimserene/PMCSBalatro
