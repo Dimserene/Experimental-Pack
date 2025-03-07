@@ -124,9 +124,6 @@
 [submodule "Mods/Order"]
 	path = Mods/Order
 	url = https://github.com/pinkmaggit-hub/Order/
-[submodule "Mods/CollectorsCards"]
-	path = Mods/CollectorsCards
-	url = https://github.com/Mathguy23/CollectorsCards
 [submodule "Mods/DebugPlus"]
 	path = Mods/DebugPlus
 	url = https://github.com/Dimserene/DebugPlus
