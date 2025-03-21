@@ -22,9 +22,6 @@
 [submodule "Mods/Handy"]
 	path = Mods/Handy
 	url = https://github.com/SleepyG11/HandyBalatro
-[submodule "Mods/Item-Remover"]
-	path = Mods/Item-Remover
-	url = https://github.com/art-muncher/Item-Remover
 [submodule "Mods/JokerDisplay"]
 	path = Mods/JokerDisplay
 	url = https://github.com/nh6574/JokerDisplay
@@ -260,3 +257,6 @@
 [submodule "Mods/Blackjacked"]
 	path = Mods/Blackjacked
 	url = https://github.com/TERRAKIRA/Blackjacked-A-Balatro-Mod
+[submodule "Mods/Banner"]
+	path = Mods/Banner
+	url = https://github.com/SylviBlossom/Banner
