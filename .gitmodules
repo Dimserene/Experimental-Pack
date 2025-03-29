@@ -154,9 +154,6 @@
 [submodule "Mods/TOGAPackBalatro"]
 	path = Mods/TOGAPackBalatro
 	url = https://github.com/TheOneGoofAli/TOGAPackBalatro
-[submodule "Mods/Holotro"]
-	path = Mods/Holotro
-	url = https://github.com/Dimserene/Holotro
 [submodule "Mods/Fortune"]
 	path = Mods/Fortune
 	url = https://github.com/Maratby/Fortune
@@ -260,3 +257,96 @@
 [submodule "Mods/Banner"]
 	path = Mods/Banner
 	url = https://github.com/SylviBlossom/Banner
+[submodule "Mods/TheDreadJokers"]
+	path = Mods/TheDreadJokers
+	url = https://github.com/Dimserene/TheDreadJokers
+[submodule "Mods/GlitchsBacklog"]
+	path = Mods/GlitchsBacklog
+	url = https://github.com/kierkat10/glitchsbacklog
+[submodule "Mods/Galaxia"]
+	path = Mods/Galaxia
+	url = https://github.com/Orion107/Galaxia
+[submodule "Mods/Beelatro"]
+	path = Mods/Beelatro
+	url = https://github.com/InspectorBalloonicorn/Beelatro
+[submodule "Mods/Wee-Laddies"]
+	path = Mods/Wee-Laddies
+	url = https://github.com/SergantDolt/wee-lads
+[submodule "Mods/View-Deck-Pages"]
+	path = Mods/View-Deck-Pages
+	url = https://github.com/RattlingSnow353/View-Deck-Pages
+[submodule "Mods/TerrariaXBalatro"]
+	path = Mods/TerrariaXBalatro
+	url = https://github.com/misenrol/TerrariaXBalatro
+[submodule "Mods/TerraPotions"]
+	path = Mods/TerraPotions
+	url = https://github.com/Row-set-te/BalatroTerraPotions
+[submodule "Mods/Splatro"]
+	path = Mods/Splatro
+	url = https://github.com/Maratby/Splatro/
+[submodule "Mods/SilksongCopium"]
+	path = Mods/SilksongCopium
+	url = https://github.com/AetherSky-arch/SkongBalatro
+[submodule "Mods/RiftRaft"]
+	path = Mods/RiftRaft
+	url = https://github.com/vitellaryjr/RiftRaft
+[submodule "Mods/Quilombo"]
+	path = Mods/Quilombo
+	url = https://github.com/acetna/Quilombo
+[submodule "Mods/PumpkinJokesters"]
+	path = Mods/PumpkinJokesters
+	url = https://github.com/PumpkinHook/PumpkinJokesters
+[submodule "Mods/PowerCreep"]
+	path = Mods/PowerCreep
+	url = https://github.com/Lpazos1/PowerCreep
+[submodule "Mods/Pi_cubeds_Jokers"]
+	path = Mods/Pi_cubeds_Jokers
+	url = https://github.com/pi-cubed-cat/pi_cubeds_jokers
+[submodule "Mods/Panley-Joker"]
+	path = Mods/Panley-Joker
+	url = https://github.com/RedrcknRbn/Panley-Joker
+[submodule "Mods/Opandoras-Box"]
+	path = Mods/Opandoras-Box
+	url = https://github.com/ohpahn/opandoras-box/
+[submodule "Mods/Nrio-Stuff"]
+	path = Mods/Nrio-Stuff
+	url = https://github.com/NrioModer/Nrio-Stuff
+[submodule "Mods/No-Stake-Tooltip"]
+	path = Mods/No-Stake-Tooltip
+	url = https://github.com/SDM0/No-Stake-Tooltip
+[submodule "Mods/Miku-Friends"]
+	path = Mods/Miku-Friends
+	url = https://github.com/misenrol/MIku-Friends-BalatroMod
+[submodule "Mods/Magpy-s-Oddities"]
+	path = Mods/Magpy-s-Oddities
+	url = https://github.com/magpyfeather/Magpy-s-Oddities
+[submodule "Mods/Luttrelliums-Singularity"]
+	path = Mods/Luttrelliums-Singularity
+	url = https://github.com/Luttrellium/Luttrelliums-Singularity---Balatro-Mod
+[submodule "Mods/LuckyWishes"]
+	path = Mods/LuckyWishes
+	url = https://github.com/MamiKeRiko/luckywishes
+[submodule "Mods/KLGB76-s-Joker-Pack"]
+	path = Mods/KLGB76-s-Joker-Pack
+	url = https://github.com/KLGB76/KLGB76-s-Balatro-Joker-Pack
+[submodule "Mods/Glue-For-Modpacks"]
+	path = Mods/Glue-For-Modpacks
+	url = https://github.com/Dimserene/Glue-For-Modpacks
+[submodule "Mods/Friends-Of-The-Sea"]
+	path = Mods/Friends-Of-The-Sea
+	url = https://github.com/EiraOcemu/Friends-Of-The-Sea
+[submodule "Mods/DRCAABM"]
+	path = Mods/DRCAABM
+	url = https://github.com/a-memer/Deliriums-Really-Cool-And-Awsome-Balatro-Mod
+[submodule "Mods/DevilsDeckbox"]
+	path = Mods/DevilsDeckbox
+	url = https://github.com/nightfreeze9128/DevilsDeckbox
+[submodule "Mods/Balatro-Hevven"]
+	path = Mods/Balatro-Hevven
+	url = https://github.com/TheAlternateDoctor/Balatro-Hevven
+[submodule "Mods/AetherJokers"]
+	path = Mods/AetherJokers
+	url = https://github.com/BustyCatbot/AetherJokers
+[submodule "Mods/Holotro"]
+	path = Mods/Holotro
+	url = https://github.com/RivFalcon/Holotro
